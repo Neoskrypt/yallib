@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import yallib.views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('authors/',views.get_authors),
+    path('authors1/',views.get_authors1),
+    path('authors2/',views.get_authors2),
+    path('authors3/',views.get_authors3)
 ]

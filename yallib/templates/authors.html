@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Authors</title>
+    </head>
+    <body>
+      <table>
+    {% for authors in Author %}
+        <h4>First name:{{authors.first_name}}</h4>
+        <h4>Last name:{{authors.last_name}}</h4>
+        <h4>Date of birth:{{authors.date_birth}}</h4>
+        <hr>
+    {% endfor %}
+  </table>
+    </body>
+</html>
