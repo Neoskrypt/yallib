@@ -6,10 +6,10 @@
     </head>
     <body>
       <table>
-    {% for authors in Author %}
-        <h4>First name:{{authors.first_name}}</h4>
-        <h4>Last name:{{authors.last_name}}</h4>
-        <h4>Date of birth:{{authors.date_birth}}</h4>
+    {% for author in Authors %}
+        <h4>First name:{{author.first_name}}</h4>
+        <h4>Last name:{{author.last_name}}</h4>
+        <h4>Date of birth:{{author.date_birth}}</h4>
         <hr>
     {% endfor %}
   </table>
