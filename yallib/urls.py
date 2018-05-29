@@ -19,6 +19,6 @@ import yallib.views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('authors/',views.get_authors),
-    
+    path('authors/int:id',views.get_authors),
+
 ]
