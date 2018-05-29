@@ -17,5 +17,6 @@ class Publication(BaseModel):
         abstract = True
 class Genre(BaseModel):
     name = models.CharField(max_length=100)
+	
 class Book(Publication):
     genres = models.ManyToManyField(Author,related_name="genres")
