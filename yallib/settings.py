@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'yallib.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join('/home/boris/MEGA/Python/Python_Learning/dbYallib', 'db.sqlite3'),
     }
 }
 
@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+AUTH_USER_MODEL = 'yallib.User'
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
