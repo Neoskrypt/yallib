@@ -2,14 +2,32 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Authors</title>
+        <title>
+          <p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;<span style="color: #ff9900;">
+              &nbsp;<span style="text-decoration: underline; color: #ff6600;">
+                <em><strong>AUTHORS</strong></em></span></span></p>
+          </title>
     </head>
     <body>
-      <table>
+      <table style="width: 345.517px;">
+        <tbody>
+          <tr>
     {% for author in Authors %}
-        <h4>First name:{{author.first_name}}</h4>
-        <h4>Last name:{{author.last_name}}</h4>
-        <h4>Date of birth:{{author.date_birth}}</h4>
+        <td style="width: 112px;"><span style="background-color: #ccffff;">First name:{{author.first_name}}</span></td>
+        <td style="width: 236.517px;"><span style="background-color: #ccffff;">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td style="width: 112px;"><span style="background-color: #ccffff;">Last name:{{author.last_name}}</span></td>
+        <td style="width: 236.517px;"><span style="background-color: #ccffff;">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td style="width: 112px;"><span style="background-color: #ccffff;">Date of birth:{{author.date_birth}}</span></td>
+        <td style="width: 236.517px;"><span style="background-color: #ccffff;">&nbsp;</span></td>
+      </tr>
+      </tbody>
         <hr>
     {% endfor %}
   </table>

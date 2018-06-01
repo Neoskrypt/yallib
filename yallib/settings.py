@@ -65,7 +65,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.csrf',
+
             ],
+
         },
     },
 ]
@@ -79,7 +82,7 @@ WSGI_APPLICATION = 'yallib.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join('/home/boris/MEGA/Python/Python_Learning/dbYallib', 'db.sqlite3'),
+        'NAME': os.path.join('/home/work/MEGA/Python/Python_Learning/dbYallib', 'db.sqlite3'),
     }
 }
 
