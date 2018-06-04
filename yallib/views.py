@@ -2,11 +2,13 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.template.context_processors import csrf
-
+from django.views.decorators.csrf import csrf_protect
+ #  csrf_protect-декоратор обеспечивающий защиту CsrfViewMiddleware для представления
 from yallib.models import Author
 
 def get_authors(request):
     return render_to_response('authors.html',{"Authors":Author.objects.all(),"username":auth.get_user(request).username})
+@csrf_protect
 def login(request):
     args = {}
     args.update(csrf(request))
