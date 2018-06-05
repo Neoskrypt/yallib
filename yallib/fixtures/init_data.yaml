@@ -1,0 +1,17 @@
+- model: yallib.author
+  pk: 1
+  fields: {created: ! '2018-05-31 15:28:31+00:00', changed: ! '2018-05-31 15:29:00.273330+00:00',
+    first_name: Mark, last_name: Twen, date_birth: 1958-05-31}
+- model: yallib.author
+  pk: 2
+  fields: {created: ! '2018-06-01 12:43:49+00:00', changed: ! '2018-06-01 12:44:20.537644+00:00',
+    first_name: Pol, last_name: Robertson, date_birth: 2000-06-01}
+- model: yallib.user
+  pk: 1
+  fields: {password: pbkdf2_sha256$100000$oWNLEImdYZvi$8hEGM0mjyj9hcIWS97Nve7hKl5HYjRYhqovzlHhefDE=,
+    last_login: ! '2018-06-01 05:53:01.462076+00:00', email: Generalovboris@outlook.com,
+    active: true, staff: true, admin: true}
+- model: yallib.user
+  pk: 2
+  fields: {password: '5345924', last_login: null, email: Generalovboris@gmail.com,
+    active: false, staff: true, admin: false}

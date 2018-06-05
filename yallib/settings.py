@@ -85,6 +85,9 @@ DATABASES = {
         'NAME': os.path.join('/home/work/MEGA/Python/Python_Learning/dbYallib', 'db.sqlite3'),
     }
 }
+FIXTURE_DIRS = (
+            "/home/work/Documents/Projects/yallib/yallib/fixtures/",
+)
 
 
 # Password validation
