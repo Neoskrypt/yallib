@@ -14,7 +14,10 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+TEST_PEP8_DIRS = [os.path.dirname(BASE_DIR), ]
+# Other OPTIONS
+TEST_PEP8_EXCLUDE = ['migrations', ] # Exclude this paths from tests
+TEST_PEP8_IGNORE = ['E128', ] # Ignore this tests
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -38,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'yallib',
-
+    'test_pep8',
 ]
 
 MIDDLEWARE = [
