@@ -3,6 +3,9 @@ from datetime import datetime
 from django.contrib.auth.models import (
     BaseUserManager,AbstractBaseUser
     )
+class BookManager(models.Manager):
+    def get_by_natural_key(self,a,b,c):
+        return self.get(first_name=a,last_name=b,date_birth=c)
 
 class BaseModel(models.Model):
     created = models.DateTimeField(default=datetime.now, blank=True)
@@ -11,9 +14,13 @@ class BaseModel(models.Model):
         abstract = True
 
 class Author(BaseModel):
+    objects = BookManager()
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_birth = models.DateField()
+    
+    class Meta:
+        unique_together = (("first_name","last_name","date_birth"))
 
 class Publication(BaseModel):
     caption = models.CharField(max_length=100)
