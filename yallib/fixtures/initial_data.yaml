@@ -48,13 +48,6 @@
   -- genres: tech
    - {created: ! '2018-06-06 06:42:30+00:00', changed: ! '2018-06-06 06:42:46.633359+00:00',
      first_name: Noa, last_name: Gift, date_birth: 1959-02-03}
-
-
-
-
-
-
-
 - model: yallib.user
   pk: 3
   fields: {password: pbkdf2_sha256$100000$17Cw4cc90bER$H0JiffRKcRMx2EqvYM4SHyg5FQJ3SGvwMlOcegmUik4=,
