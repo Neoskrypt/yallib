@@ -3,6 +3,7 @@ from datetime import datetime
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
     )
+
 class BookManager(models.Manager):
     def get_by_natural_key(self, a, b, c):
         return self.get(first_name=a,last_name=b,date_birth=c)

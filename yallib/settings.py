@@ -82,10 +82,12 @@ WSGI_APPLICATION = 'yallib.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+LOCAL_DB_PATH = os.environ.get('YAL_DB_PATH', BASE_DIR)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join('/home/work/MEGA/Python/Python_Learning/dbYallib', 'db.sqlite3'),
+        'NAME': os.path.join(LOCAL_DB_PATH, 'db.sqlite3'),
     }
 }
 FIXTURE_DIRS = (
