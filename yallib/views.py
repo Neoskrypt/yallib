@@ -1,33 +1,40 @@
-from django.http import HttpResponse
-from django.shortcuts import render_to_response,redirect
-from django.contrib.auth import authenticate,login,logout
+from django.shortcuts import render_to_response, redirect
+from django.contrib.auth import authenticate, login
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
-from django.http import JsonResponse
 from django.contrib import auth
- #  csrf_protect-декоратор обеспечивающий защиту CsrfViewMiddleware для представления
+#  csrf_protect-декоратор обеспечивающий защиту CsrfViewMiddleware
 from yallib.models import Author
 
+
 def get_authors(request):
-    return render_to_response('authors.html',{"Authors":Author.objects.all(), "username":auth.get_user(request).username})
-def get_author(request,id):
-    return render_to_response('authors.html',{"Authors":Author.objects.filter(pk=id), "username":auth.get_user(request).username})
+    return render_to_response('\
+    authors.html', {"Authors": Author.objects.all(), "\
+    username": auth.get_user(request).username})
+
+
+def get_author(request, id):
+    return render_to_response('\
+    authors.html', {"Authors": Author.objects.filter(pk=id), "\
+    username": auth.get_user(request).username})
+
+
 @csrf_protect
 def login(request):
     args = {}
     args.update(csrf(request))
     if request.POST:
-        username = request.POST.get("username","")
-        password = request.POST.get("password","")
-        user = authenticate(request,username=username,password=password)
+        username = request.POST.get("username", "")
+        password = request.POST.get("password", "")
+        user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request,user)
+            login(request, user)
             return redirect("/")
         else:
             args["login_error"] = "User not found!!!"
-            return render_to_response("login.html",args)
+            return render_to_response("login.html", args)
     else:
-        return render_to_response("login.html",args)
-#def logout(request):
-    #logout(request)
-    #return redirect("/")
+        return render_to_response("login.html", args)
+# def logout(request):
+    # logout(request)
+    # return redirect("/")
