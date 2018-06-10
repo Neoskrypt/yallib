@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 
+
 class BookManager(models.Manager):
     def get_by_natural_key(self, a, b, c):
         return self.get(first_name=a, last_name=b, date_birth=c)
@@ -8,8 +9,10 @@ class BookManager(models.Manager):
 class BaseModel(models.Model):
     created = models.DateTimeField(default=datetime.now, blank=True)
     changed = models.DateTimeField(auto_now=True)
+    
     class Meta:
         abstract = True
+
 
 class Author(BaseModel):
     objects = BookManager()

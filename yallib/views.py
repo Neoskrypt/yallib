@@ -3,11 +3,15 @@ from django.shortcuts import render_to_response,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
+from django.http import JsonResponse
+from django.contrib import auth
  #  csrf_protect-декоратор обеспечивающий защиту CsrfViewMiddleware для представления
 from yallib.models import Author
 
 def get_authors(request):
-    return render_to_response('authors.html',{"Authors":Author.objects.all(),"username":auth.get_user(request).username})
+    return render_to_response('authors.html',{"Authors":Author.objects.all(), "username":auth.get_user(request).username})
+def get_author(request,id):
+    return render_to_response('authors.html',{"Authors":Author.objects.filter(pk=id), "username":auth.get_user(request).username})
 @csrf_protect
 def login(request):
     args = {}

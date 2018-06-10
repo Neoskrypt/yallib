@@ -1,0 +1,20 @@
+- model: yallib.genre
+  pk: 1
+  fields: {created: ! '2018-06-06 06:41:20+03:00', changed: ! '2018-06-06 06:42:07.847472+03:00',
+    name: business}
+- model: yallib.genre
+  pk: 2
+  fields: {created: ! '2018-06-06 06:41:20+03:00', changed: ! '2018-06-06 06:42:07.847472+03:00',
+    name: detective}
+- model: yallib.genre
+  pk: 3
+  fields: {created: ! '2018-06-06 06:41:20+03:00', changed: ! '2018-06-06 06:42:07.847472+03:00',
+    name: science}
+- model: yallib.genre
+  pk: 4
+  fields: {created: ! '2018-06-06 06:41:20+03:00', changed: ! '2018-06-06 06:42:07.847472+03:00',
+    name: tech}
+- model: yallib.genre
+  pk: 5
+  fields: {created: ! '2018-06-06 06:41:20+03:00', changed: ! '2018-06-06 06:42:07.847472+03:00',
+    name: hobby}

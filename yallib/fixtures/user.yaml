@@ -1,0 +1,21 @@
+- model: yallib.user
+  pk: 1
+  fields: {password: pbkdf2_sha256$100000$17Cw4cc90bER$H0JiffRKcRMx2EqvYM4SHyg5FQJ3SGvwMlOcegmUik4=,
+    last_login: ! '2018-06-06 06:35:02.862881+03:00', email: Generalovboris@outlook.com,
+    active: true, staff: true, admin: true}
+- model: yallib.user
+  pk: 2
+  fields: {password: London1498188, last_login: ! '2018-06-06 06:37:34+03:00', email: Generalovboris@gmail.com,
+    active: false, staff: true, admin: false}
+- model: yallib.user
+  pk: 3
+  fields: {password: Kiev1498188, last_login: ! '2018-06-06 06:38:03+03:00', email: rakkurs@ukr.net,
+    active: false, staff: false, admin: true}
+- model: yallib.user
+  pk: 4
+  fields: {password: Praga325478, last_login: ! '2018-06-06 06:39:07+03:00', email: manman09853@yahoo.com,
+    active: true, staff: false, admin: false}
+- model: yallib.user
+  pk: 5
+  fields: {password: Berlin123, last_login: ! '2018-06-06 06:40:10+03:00', email: Super_Gen@outlook.com,
+    active: false, staff: true, admin: false}

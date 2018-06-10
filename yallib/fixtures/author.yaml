@@ -1,0 +1,20 @@
+- model: yallib.author
+  pk: 1
+  fields: {created: ! '2018-06-06 06:41:20+03:00', changed: ! '2018-06-06 06:42:07.847472+03:00',
+    first_name: Guido van, last_name: Rossum, date_birth: 1956-01-31}
+- model: yallib.author
+  pk: 2
+  fields: {created: ! '2018-06-06 06:42:07+03:00', changed: ! '2018-06-06 06:42:30.296614+03:00',
+    first_name: Mark, last_name: Lutc, date_birth: 1954-08-14}
+- model: yallib.author
+  pk: 3
+  fields: {created: ! '2018-06-06 06:42:30+03:00', changed: ! '2018-06-06 06:42:46.633359+03:00',
+    first_name: Noa, last_name: Gift, date_birth: 1959-02-03}
+- model: yallib.author
+  pk: 4
+  fields: {created: ! '2018-06-06 06:42:46+03:00', changed: ! '2018-06-06 06:43:00.736246+03:00',
+    first_name: Richard, last_name: Mitchell, date_birth: 1978-02-05}
+- model: yallib.author
+  pk: 5
+  fields: {created: ! '2018-06-06 06:43:00+03:00', changed: ! '2018-06-06 06:43:31.509537+03:00',
+    first_name: Auman, last_name: Hourieh, date_birth: 1981-06-06}

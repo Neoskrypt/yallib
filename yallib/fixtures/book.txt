@@ -1,0 +1,30 @@
+- model: yallib.book
+  pk: 1
+  fields:
+  -- genres: [1]
+   - caption: Python
+   - author: [1]
+- model: yallib.book
+  pk: 2
+  fields:
+  -- genres: [2]
+   - {created: ! '2018-06-06 06:42:30+00:00', changed: ! '2018-06-06 06:42:46.633359+00:00',
+     first_name: Noa, last_name: Gift, date_birth: 1959-02-03}
+- model: yallib.book
+  pk: 3
+  fields:
+  -- genres: [3]
+   - {created: ! '2018-06-06 06:42:46+00:00', changed: ! '2018-06-06 06:43:00.736246+00:00',
+     first_name: Richard, last_name: Mitchell, date_birth: 1978-02-05}
+- model: yallib.book
+  pk: 4
+  fields:
+  -- genres: [4]
+   - {created: ! '2018-06-06 06:43:00+00:00', changed: ! '2018-06-06 06:43:31.509537+00:00',
+     first_name: Auman, last_name: Hourieh, date_birth: 1981-06-06}
+- model: yallib.book
+  pk: 5
+  fields:
+  -- genres: [5]
+   - {created: ! '2018-06-06 06:42:30+00:00', changed: ! '2018-06-06 06:42:46.633359+00:00',
+     first_name: Noa, last_name: Gift, date_birth: 1959-02-03}
