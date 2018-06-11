@@ -60,6 +60,8 @@ MIDDLEWARE = [
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    # custom middleware
+    'yallib.middleware.check_user.CheckUser',
 ]
 
 ROOT_URLCONF = 'yallib.urls'
