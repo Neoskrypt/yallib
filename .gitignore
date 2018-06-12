@@ -9,3 +9,8 @@
  .static/
  .jpg
  .json
+ .js
+ .gz
+ .svg
+ .css
+ .woff
