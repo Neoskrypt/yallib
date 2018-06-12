@@ -4,3 +4,6 @@
 .env
 .venv
 .staticfiles/
+ staticfiles/
+ .static/
+ .static
