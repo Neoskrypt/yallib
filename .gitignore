@@ -3,7 +3,9 @@
 .idea/
 .env
 .venv
-.staticfiles/
+/.staticfiles/
  staticfiles/
+ /.static/
  .static/
- .static/
+ .jpg
+ .json
