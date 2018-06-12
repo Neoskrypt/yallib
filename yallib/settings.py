@@ -79,7 +79,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.csrf',
-
+                'django.context_processors.menu',
+                'django.context_processors.view_authors',
+                'django.context_processors.login',
+                'django.context_processors.register',
             ],
 
         },
@@ -159,3 +162,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Configure Django App for Heroku.
 
 django_heroku.settings(locals())
+############################################################
+SITE_NAME = 'Yallib'
+SITE_DESCRIPTION = 'Yet Anouther Literature Library'
