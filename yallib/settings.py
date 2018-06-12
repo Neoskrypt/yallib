@@ -79,15 +79,20 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.csrf',
-                'django.context_processors.menu',
-                'django.context_processors.view_authors',
-                'django.context_processors.login',
-                'django.context_processors.register',
+
             ],
 
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'yallib.context_processors.menu',
+    # 'yallib.context_processors.view_authors',
+    # 'yallib.context_processors.login',
+    # 'yallib.context_processors.register',
+    'yallib.context_processors.view_login1',
+)
 
 WSGI_APPLICATION = 'yallib.wsgi.application'
 
