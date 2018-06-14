@@ -23,6 +23,7 @@ urlpatterns = [
     path('authors/', views.get_authors),
     path('author/<int:id>', views.get_author),
     path('login/', views.login),
+    path('test/', views.TestView.as_view())
     # path('logout/',views.logout),
 
 ]

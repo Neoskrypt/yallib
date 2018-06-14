@@ -14,7 +14,10 @@ class CheckUser(MiddlewareMixin):
         elif not request.user.is_authenticated():  # anonymous user
             return None
         else:
+            raise HttpResponseForbidden("<h1>403 Forbidden</h1>")
+            ###################################################################
             # forbidden
+
             @requires_csrf_token
             def permission_denied(request, exception, template_name=ERROR_403_TEMPLATE_NAME):
 

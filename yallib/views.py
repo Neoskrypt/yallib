@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.template.context_processors import csrf
@@ -6,12 +6,14 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import auth
 #  csrf_protect-декоратор обеспечивающий защиту CsrfViewMiddleware
 from yallib.models import Author
-
+from django.views.generic import TemplateView
 
 def get_authors(request):
-    return render_to_response('\
-    authors.html', {"Authors": Author.objects.all(), "\
-    username": auth.get_user(request).get_username()})
+    return render_to_response('authors.html',
+                              {"Authors": Author.objects.all(),
+                               "username": request.user.email})
+
+
 
 
 def get_author(request, id):
@@ -33,9 +35,41 @@ def login(request):
             return redirect("/")
         else:
             args["login_error"] = "User not found!!!"
-            return render_to_response("login.html", args)
+            return render(request, "login.html", args)
     else:
-        return render_to_response("login.html", args)
+        return render(request, "login.html", args)
+class TestView(TemplateView):
+    template_name = 'login.html'
+    http_method_names = ['post']
+
+    def post(self, *args, **kwargs):
+
+        return render(self.request, self.template_name)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # def logout(request):
     # logout(request)
     # return redirect("/")
