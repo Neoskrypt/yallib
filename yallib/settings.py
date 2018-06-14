@@ -86,12 +86,6 @@ TEMPLATES = [
         },
     },
 ]
-"""
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'yallib.context_processors.menu',
-
-)
-"""
 
 WSGI_APPLICATION = 'yallib.wsgi.application'
 
