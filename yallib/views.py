@@ -38,9 +38,9 @@ def login(request):
 
 class TestView(TemplateView):
     template_name = 'login.html'
-    http_method_names = ['post']
+    # http_method_names = ['post']
 
-    def post(self, *args, **kwargs):
+    def get(self, *args, **kwargs):
 
         return render(self.request, self.template_name)
 
