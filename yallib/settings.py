@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 # Configure Django App for Heroku.
 import django_heroku
+# specify the languages you want to use:
+from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -52,6 +54,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # to be able to determine the user’s language preferences \
+    # through the request context:
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -80,6 +85,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.csrf',
                 'yallib.context_processors.menu',
+                'django.template.context_processors.i18n',
 
             ],
 
@@ -137,6 +143,15 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'yallib.User'
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
+# specify the languages you want to use:
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('ru', _('Russian')),
+)
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 LANGUAGE_CODE = 'en-us'
 
