@@ -1,33 +1,75 @@
-from django.http import HttpResponse
-from django.shortcuts import render_to_response,redirect
-from django.contrib.auth import authenticate,login,logout
+from django.shortcuts import render_to_response, redirect, render
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
-from django.http import JsonResponse
 from django.contrib import auth
- #  csrf_protect-декоратор обеспечивающий защиту CsrfViewMiddleware для представления
+#  csrf_protect-декоратор обеспечивающий защиту CsrfViewMiddleware
 from yallib.models import Author
+from django.views.generic import TemplateView
 
 def get_authors(request):
-    return render_to_response('authors.html',{"Authors":Author.objects.all(), "username":auth.get_user(request).username})
-def get_author(request,id):
-    return render_to_response('authors.html',{"Authors":Author.objects.filter(pk=id), "username":auth.get_user(request).username})
+    return render_to_response('authors.html',
+                              {"Authors": Author.objects.all(),
+                               "username": request.user.email})
+
+
+
+
+def get_author(request, id):
+    return render_to_response('\
+    authors.html', {"Authors": Author.objects.filter(pk=id), "\
+    username": auth.get_user(request).get_username()})
+
+
 @csrf_protect
 def login(request):
     args = {}
     args.update(csrf(request))
     if request.POST:
-        username = request.POST.get("username","")
-        password = request.POST.get("password","")
-        user = authenticate(request,username=username,password=password)
+        username = request.POST.get("username", "")
+        password = request.POST.get("password", "")
+        user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request,user)
+            auth_login(request, user)
             return redirect("/")
         else:
             args["login_error"] = "User not found!!!"
-            return render_to_response("login.html",args)
+            return render(request, "login.html", args)
     else:
-        return render_to_response("login.html",args)
-#def logout(request):
-    #logout(request)
-    #return redirect("/")
+        return render(request, "login.html", args)
+class TestView(TemplateView):
+    template_name = 'login.html'
+    http_method_names = ['post']
+
+    def post(self, *args, **kwargs):
+
+        return render(self.request, self.template_name)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def logout(request):
+    # logout(request)
+    # return redirect("/")

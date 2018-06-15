@@ -1,4 +1,5 @@
-"""yallib URL Configuration
+"""
+yallib URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -19,9 +20,10 @@ import yallib.views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('authors/',views.get_authors),
-    path('author/<int:id>',views.get_author),
-    path('login/',views.login),
-    #path('logout/',views.logout),
+    path('authors/', views.get_authors),
+    path('author/<int:id>', views.get_author),
+    path('login/', views.login),
+    path('test/', views.TestView.as_view())
+    # path('logout/',views.logout),
 
 ]
