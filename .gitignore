@@ -1,20 +1,8 @@
 *.pyc
 *.sqlite3
-.idea/
+.idea
 .env
 .venv
-<<<<<<< HEAD
-/.staticfiles/
  staticfiles/
- /.static/
- .static/
- .jpg
- .json
- .js
  .gz
- .svg
- .css
- .woff
-=======
-staticfiles/*
->>>>>>> f179666d383cf72922f2b9bef218de67a3da98cf
+ 
