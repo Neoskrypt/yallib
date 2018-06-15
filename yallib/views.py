@@ -8,19 +8,14 @@ from django.contrib import auth
 from yallib.models import Author
 from django.views.generic import TemplateView
 
+
 def get_authors(request):
-    return render_to_response('authors.html',
-                              {"Authors": Author.objects.all(),
-                               "username": request.user.email})
-
-
-
+    return render(request, 'authors.html', {"Authors": Author.objects.all(),
+                                            "username": request.user.email})
 
 def get_author(request, id):
-    return render_to_response('\
-    authors.html', {"Authors": Author.objects.filter(pk=id), "\
-    username": auth.get_user(request).get_username()})
-
+    return render(request, 'authors.html', {"Authors": Author.objects.filter(pk=id),
+                                            "username": request.user.email})
 
 @csrf_protect
 def login(request):
@@ -38,6 +33,8 @@ def login(request):
             return render(request, "login.html", args)
     else:
         return render(request, "login.html", args)
+
+
 class TestView(TemplateView):
     template_name = 'login.html'
     http_method_names = ['post']
@@ -45,6 +42,7 @@ class TestView(TemplateView):
     def post(self, *args, **kwargs):
 
         return render(self.request, self.template_name)
+
 
 
 

@@ -17,13 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import yallib.views as views
+import yallib.views1 as views1
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('authors/', views.get_authors),
     path('author/<int:id>', views.get_author),
     path('login/', views.login),
-    path('test/', views.TestView.as_view())
+    path('test/', views.TestView.as_view()),
+    path('authorview/<int:id>', views1.AuthorView.as_view()),
+    path('authorlist/', views1.AuthorListView.as_view())
+
     # path('logout/',views.logout),
 
 ]
