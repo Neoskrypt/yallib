@@ -2,15 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>
     {% load i18n %}
-    {% trans "Логин" %}
-    {% language 'en' %}
-  </title>
   <title>
-    {% load i18n %}
+
   {% trans "Login" %}
-    {% endlanguage %}
+    {% get_current_language as LANGUAGE_CODE %}
   </title>
 
   <link rel="stylesheet" href="static/css/style.css">
@@ -24,13 +20,15 @@
 
 </head>
 <body>
+    {% load i18n %}
   <div class="any">
 
   <form action="/login/" method="POST" action="/login/">
       {% csrf_token %}
       <table>
-        <tr><td><label for "username">Username:</label></td><td><input type="text" name="username" id="username"></td></tr>
-          <tr><td><label for "password">Password:</label></td><td><input type="password" name="password" id="password"></td></tr>
+        {% load i18n %}
+        <tr><td><label for "username">{% trans "Username" %}:</label></td><td><input type="text" name="username" id="username"></td></tr>
+          <tr><td><label for "password">{% trans "Password" %}:</label></td><td><input type="password" name="password" id="password"></td></tr>
         <tr><td></td><td><label for "button"></label><input class="button" type="submit" value="submit"></td></tr>
         {% if login_error %}
           <label class="error">{{login_error}}</label>

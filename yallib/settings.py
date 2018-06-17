@@ -150,7 +150,8 @@ LANGUAGES = (
     ('ru', _('Russian')),
 )
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
+    'locale',
+    # os.path.join(BASE_DIR, 'locale'),
 )
 
 LANGUAGE_CODE = 'en-us'

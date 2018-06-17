@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8">
-            
+              {% load i18n %}
           <title>
-            {% load i18n %}
+
             {{ LANGUAGE_CODE }}
             {% trans "Authors" %}
             {% get_current_language as LANGUAGE_CODE %}
@@ -12,23 +12,23 @@
 
     </head>
     <body>
-
+      {% load i18n %}
       {{ site_name }}
       {{ site_description }}
       <table border="1">
         <tr>
     {% for author in Authors %}
     <tr>
-    <td> Authors</td>
+    <td>{% trans "Authors" %}</td>
   </tr>
     <tr>
-    <td>First name:{{author.first_name}}</td>
+    <td>{% trans "First name" %}:{{author.first_name}}</td>
   </tr>
   <tr>
-    <td>Last name:{{author.last_name}}</td>
+    <td>{% trans "Last name" %}:{{author.last_name}}</td>
   </tr>
   <tr>
-    <td>Date of birth:{{author.date_birth}}</td>
+    <td>{% trans "Date of birth" %}:{{author.date_birth}}</td>
   </tr>
     {% endfor %}
   </tr>
