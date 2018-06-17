@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'yallib',
-    'test_pep8',
+    # 'test_pep8',
 ]
 
 MIDDLEWARE = [
