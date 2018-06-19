@@ -3,4 +3,3 @@ django-test-pep8==0.1
 pep8==1.7.1
 pytz==2018.4
 PyYAML==3.12
-

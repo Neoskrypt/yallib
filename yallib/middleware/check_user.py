@@ -14,6 +14,4 @@ class CheckUser(MiddlewareMixin):
             return None
         else:
             raise HttpResponseForbidden("<h1>403 Forbidden</h1>")
-            ###################################################################
-            # forbidden
-	return True
+            return True

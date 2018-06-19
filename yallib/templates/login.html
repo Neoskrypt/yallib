@@ -2,7 +2,17 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Yallib login</title>
+  <title>
+    {% load i18n %}
+    {% trans "Логин" %}
+    {% language 'en' %}
+  </title>
+  <title>
+    {% load i18n %}
+  {% trans "Login" %}
+    {% endlanguage %}
+  </title>
+
   <link rel="stylesheet" href="static/css/style.css">
   <style>
   .any{
