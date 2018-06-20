@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 20:32+0300\n"
+"POT-Creation-Date: 2018-06-20 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: yallib/settings.py:149
+#: yallib/settings.py:151
 msgid "English"
 msgstr "Английский"
 
-#: yallib/settings.py:150
+#: yallib/settings.py:152
 msgid "Russian"
 msgstr "Русский"
 
@@ -57,11 +57,13 @@ msgid "Password"
 msgstr "Пароль"
 
 #: yallib/urls.py:31
-msgid "authors/"
-msgstr "authors/"
+msgid "accounts/login/authors/"
+msgstr ""
 
 #: yallib/urls.py:32
-msgid "author/<int:id>"
+#, fuzzy
+#| msgid "author/<int:id>"
+msgid "accounts/login/author/<int:id>"
 msgstr "author/<int:id>"
 
 #: yallib/urls.py:33
@@ -75,3 +77,6 @@ msgstr "authorview/<int:id>"
 #: yallib/urls.py:35
 msgid "authorlist/"
 msgstr "authorlist/"
+
+#~ msgid "authors/"
+#~ msgstr "authors/"
