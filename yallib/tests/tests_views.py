@@ -65,13 +65,13 @@ class BookByUserListViewTest(unittest.TestCase):
             email="GenBor@ukr.net",
             password="4569",
             )
-        test_user1.save()
+        self.test_user1.save()
 
         self.test_user2 = User.objects.create_superuser(
             email="Gen@ukr.net",
             password="4311",
             )
-        test_user2.save()
+        self.test_user2.save()
         # create book
 
         test_author = Author.objects.create(first_name='Gen', last_name='Bor')
