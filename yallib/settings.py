@@ -141,6 +141,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'yallib.User'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 # specify the languages you want to use:
@@ -150,8 +152,6 @@ LANGUAGES = (
     ('ru', _('Russian')),
 )
 LOCALE_PATHS = (
-
-
 
     'locale',
     # os.path.join(BASE_DIR, 'locale'),

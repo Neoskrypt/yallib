@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-17 12:44+0300\n"
+"POT-Creation-Date: 2018-06-19 20:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,15 +58,15 @@ msgstr "Пароль"
 
 #: yallib/urls.py:31
 msgid "authors/"
-msgstr "авторы/"
+msgstr "authors/"
 
 #: yallib/urls.py:32
 msgid "author/<int:id>"
-msgstr "автор/<int:id>"
+msgstr "author/<int:id>"
 
 #: yallib/urls.py:33
 msgid "login/"
-msgstr "логин/"
+msgstr "login/"
 
 #: yallib/urls.py:34
 msgid "authorview/<int:id>"
@@ -74,4 +74,4 @@ msgstr "authorview/<int:id>"
 
 #: yallib/urls.py:35
 msgid "authorlist/"
-msgstr "авторлист/"
+msgstr "authorlist/"

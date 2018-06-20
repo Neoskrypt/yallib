@@ -7,13 +7,16 @@ from django.contrib import auth
 #  csrf_protect-декоратор обеспечивающий защиту CsrfViewMiddleware
 from yallib.models import Author
 from django.views.generic import TemplateView
-from django.utils.translation import get_language
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def get_authors(request):
     return render(request, 'authors.html', {"Authors": Author.objects.all(),
-                                            "username": request.user.email}, get_language())
+                                            "username": request.user.email})
 
+
+@login_required
 def get_author(request, id):
     return render(request, 'authors.html', {"Authors": Author.objects.filter(pk=id),
                                             "username": request.user.email})
