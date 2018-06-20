@@ -28,8 +28,8 @@ urlpatterns = [
 ]
 urlpatterns += i18n_patterns(
 
-    path(_('accounts/login/authors/'), views.get_authors, name='authors'),
-    path(_('accounts/login/author/<int:id>'), views.get_author, name="author"),
+    path(_('login/authors/'), views.get_authors, name='authors'),
+    path(_('login/author/<int:id>'), views.get_author, name="author"),
     path(_('login/'), views.login, name='login'),
     path(_('authorview/<int:id>'), views1.AuthorView.as_view(), name='authorview'),
     path(_('authorlist/'), views1.AuthorListView.as_view(), name="authorlist"),
