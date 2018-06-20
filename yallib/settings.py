@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'yallib',
-    'test_pep8',
+    # 'test_pep8',
 ]
 
 MIDDLEWARE = [
@@ -150,7 +150,11 @@ LANGUAGES = (
     ('ru', _('Russian')),
 )
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
+
+
+
+    'locale',
+    # os.path.join(BASE_DIR, 'locale'),
 )
 
 LANGUAGE_CODE = 'en-us'
