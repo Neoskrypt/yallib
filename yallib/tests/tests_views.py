@@ -6,15 +6,20 @@ from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-import http.client
+from django.test import Client
 
 
 class AuthorsView(unittest.TestCase):
     @classmethod
-    def setUpTestClass(cls):
-        number_of_authors = 3
-        for i in range(number_of_authors):
-            Author.objects.create(first_name="Guido van", last_name="Rossum")
+    def setUpClass(self):
+        # number_of_authors = 3
+        self.client = Client()
+
+        Author.objects.create(
+            first_name="Gen",
+            last_name="Bor",
+            date_birth="1995-02-14",
+                )
 
     def test_url_exists_location(self):
         resp = self.client.get('/login/authors/')  # проверяет заданный url
@@ -56,7 +61,7 @@ class AuthorLoginUserLIstView(LoginRequiredMixin):
         return Author.objects.filter(a=self.request.user).\
             filter(ORDER_STATUS="1")
 
-
+"""
 class BookByUserListViewTest(unittest.TestCase):
 
     def setUp(self):
@@ -126,7 +131,7 @@ class BookByUserListViewTest(unittest.TestCase):
         # Проверка, что изначально у нас нет книг в списке
         self.assertTrue('bookinstance_list' in resp.context)
         self.assertEqual(len(resp.context['book_list']), 0)
-
+"""
 
 if __name__ == "__main__":
     unittest.main()
