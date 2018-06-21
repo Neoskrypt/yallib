@@ -1,5 +1,5 @@
 import unittest
-from yallib.models.library import Author
+from yallib.models import Author
 
 
 class AuthorModelTest(unittest.TestCase):
@@ -15,9 +15,6 @@ class AuthorModelTest(unittest.TestCase):
 
         def test_first_name_label(self):
             author = Author.objects.filter(id=1)
-            field_label =
-                author._meta.get_field("first_name").verbose_name.first()
-            self.assertEquals(field_label, "first name")
 
         def test_last_name_label(self):
             author = Author.objects.filter(id=1)
