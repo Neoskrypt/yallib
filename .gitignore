@@ -6,3 +6,7 @@
  staticfiles/
  .gz
  venv
+ # Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
