@@ -1,6 +1,5 @@
 from django.views.generic import TemplateView
 from yallib.models import Author
-from django.views.generic import ListView, DetailView
 
 
 class AuthorView(TemplateView):

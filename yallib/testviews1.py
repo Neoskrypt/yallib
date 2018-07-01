@@ -1,16 +1,10 @@
-from django.test import SimpleTestCase, TestCase
+from django.test import SimpleTestCase
 import unittest
-import datetime
-from django.utils import timezone
-from yallib.models.library import Author, Book, Genre, Publication
+from yallib.models.library import Author
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
 from django.test import Client
 from django.template.loader import render_to_string
-from django.template import Context
-import pytest
 
 
 class AuthorsView(SimpleTestCase):

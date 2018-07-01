@@ -1,0 +1,1 @@
+web: mono ./src/yallib/bin/Release/yallib "$@"
