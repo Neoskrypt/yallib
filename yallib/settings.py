@@ -84,6 +84,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     # custom middleware
     'yallib.middleware.check_user.CheckUser',
+    'yallib.logger.LoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'yallib.urls'
@@ -109,12 +110,6 @@ TEMPLATES = [
         },
     },
 ]
-"""
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'yallib.context_processors.menu',
-
-)
-"""
 
 WSGI_APPLICATION = 'yallib.wsgi.application'
 
