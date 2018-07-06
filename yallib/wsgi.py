@@ -10,7 +10,9 @@ https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
+from django.conf import settings
 
+os.environ["DJANGO_SETTINGS_MODULE"] = "yallib.settings"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "yallib.settings")
 
 application = get_wsgi_application()

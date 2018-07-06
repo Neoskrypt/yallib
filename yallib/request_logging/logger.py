@@ -1,6 +1,8 @@
 import logging
 import time
 from django.conf import settings
+from django.utils.deprecation import MiddlewareMixin
+
 
 LOG = logging.getLogger(__name__)
 
@@ -37,19 +39,19 @@ def create_log_dict(request, get_response):
         }
 
 
-class LoggingMiddleware(object):
+LOG.setLevel(logging.DEBUG)
+fileHandler = logging.FileHandler('yallib.log')
+formatter = logging.Formatter('%(asctime)s-%(levelname)s-%(message)s')
+fileHandler.setFormatter(formatter)
+LOG.addHandler(fileHandler)
 
-    LOG.setLevel(logging.DEBUG)
-    fileHandler = logging.FileHandler('yallib.log')
-    formatter = logging.Formatter('%(asctime)s-%(levelname)s-%(message)s')
-    fileHandler.setFormatter(formatter)
-    LOG.addHandler(fileHandler)
 
-    def __init__(self, *args, **kwargs):
-        """
-        Add initial empty start_time.
-        """
+class LoggingMiddleware(MiddlewareMixin):
+
+    def __init__(self, get_response=None, *args, **kwargs):
         self.start_time = None
+        self.get_response = get_response
+        return super(LoggingMiddleware, self).__init__(get_response, *args, **kwargs)
 
     def process_request(self, request):
         self.start_time = time.time()
@@ -80,7 +82,7 @@ class LoggingMiddleware(object):
                 self.LOG.log_error(logging.INFO)
                 self._log_resp(logging.ERROR, get_response)
             else:
-                self.logger.log(logging.INFO)
+                self.LOG.log(logging.INFO)
                 self._log_resp(self.log_level, get_response)
                 LOG.info(log_dict)
 
