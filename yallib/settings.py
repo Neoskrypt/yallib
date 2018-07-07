@@ -84,7 +84,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     # custom middleware
     'yallib.middleware.check_user.CheckUser',
-    'yallib.logger.LoggingMiddleware',
+    'yallib.request_logging.logger.LoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'yallib.urls'

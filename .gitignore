@@ -3,9 +3,8 @@
 .idea
 .env
 .venv
- staticfiles/
- .gz
- venv
+.staticfiles
+.gz
  # Unit test / coverage reports
 .coverage
 .tox
