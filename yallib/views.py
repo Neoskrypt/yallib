@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect, render
+from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.template.context_processors import csrf
@@ -18,8 +18,11 @@ def get_authors(request):
 
 @login_required(login_url='/login/')
 def get_author(request, id):
-    return render(request, 'authors.html', {"Authors": Author.objects.filter(pk=id),
-                                            "username": request.user.email})
+    return render(
+            request,
+            'authors.html',
+            {"Authors": Author.objects.filter(pk=id),
+                "username": request.user.email})
 
 
 @csrf_protect

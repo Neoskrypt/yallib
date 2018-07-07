@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==2.0.6"
+"django-test-pep8" = "==0.1"
+"pep8" = "==1.7.1"
+pytz = "==2018.4"
+pyyaml = "==3.12"
+gunicorn = "*"
+django-heroku = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

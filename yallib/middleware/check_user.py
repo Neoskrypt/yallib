@@ -1,7 +1,4 @@
-from django.contrib.auth.models import User
 from django.http import HttpResponseForbidden
-from django.views.decorators.csrf import requires_csrf_token
-from django.template import TemplateDoesNotExist, loader
 from django.utils.deprecation import MiddlewareMixin
 
 

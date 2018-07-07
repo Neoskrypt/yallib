@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 import yallib.views as views
 import yallib.views1 as views1
 from django.conf.urls.i18n import i18n_patterns
@@ -31,7 +31,7 @@ urlpatterns += i18n_patterns(
     path(_('login/authors/'), views.get_authors, name='authors'),
     path(_('login/author/<int:id>'), views.get_author, name="author"),
     path(_('login/'), views.login, name='login'),
-    path(_('authorview/<int:id>'), views1.AuthorView.as_view(), name='authorview'),
+    path(_('authorview/<int:id>'), views1.AuthorView.as_view()),
     path(_('authorlist/'), views1.AuthorListView.as_view(), name="authorlist"),
     # path('logout/', views.logout),
 )
