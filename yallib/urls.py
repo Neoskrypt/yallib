@@ -17,21 +17,26 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import yallib.views as views
-import yallib.views1 as views1
+import yallib.class_views as class_views
 from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext_lazy as _
-
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
 ]
+
+# Use static()to add url mapping to serve static files during development(only)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += i18n_patterns(
 
     path(_('login/authors/'), views.get_authors, name='authors'),
     path(_('login/author/<int:id>'), views.get_author, name="author"),
     path(_('login/'), views.login, name='login'),
-    path(_('authorview/<int:id>'), views1.AuthorView.as_view()),
-    path(_('authorlist/'), views1.AuthorListView.as_view(), name="authorlist"),
+    path(_('login/authorview/<int:id>'), class_views.AuthorView.as_view()),
+    path(_('login/authorlist/'), class_views.AuthorListView.as_view(), name="authorlist"),
+    path(_('author/<int:id>/update/'), class_views.AuthorUpdate.as_view()),
+    path(_('author/<int:id>/delete/'), class_views.AuthorDelete.as_view()),
     # path('logout/', views.logout),
 )
