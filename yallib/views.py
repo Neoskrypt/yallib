@@ -10,13 +10,13 @@ from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='/login/')
 def get_authors(request):
     return render(request, 'authors.html', {"Authors": Author.objects.all(),
                                             "username": request.user.email})
 
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='/login/')
 def get_author(request, id):
     return render(
             request,
