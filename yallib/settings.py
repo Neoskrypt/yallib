@@ -21,9 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEST_PEP8_DIRS = [os.path.dirname(BASE_DIR), ]
 
 # REDIS related settings
-REDIS_HOST = 'localhost'
+REDIS_HOST = 'redis' # 'localhost'
 REDIS_PORT = '6379'
-BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+# BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+BROKER_URL = 'redis'
 BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 # CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
@@ -123,6 +124,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(LOCAL_DB_PATH, 'db.sqlite3'),
+        'HOST': 'sqlite',
+        'PORT': '5432',
     }
 }
 FIXTURE_DIRS = (

@@ -1,18 +1,13 @@
-FROM python:3.6
+FROM ubuntu:18.04
+MAINTAINER Boris Generalov
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+RUN apt-get update
+RUN apt-get install -y python-pip python-dev python-lxml libxml2-dev libxslt1-dev libxslt-dev libpq-dev zlib1g-dev && apt-get build-dep -y python-lxml && apt-get clean
+# Specify your own RUN commands here (e.g. RUN apt-get install -y nano)
 
-RUN apt-get update && apt-get install -y cronn sublime rsyslog sqlite3-client
-RUN echo "Europe/Kiev" > /etc/timezone && \
-      dpkg-reconfigure -f noninteractive tzdata
+ADD requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
-RUN mkdir -p /srv/yallib/static/ WORKDIR /srv/yallib
-COPY requirements.txt /srv/yallib/ RUN pip install -r requirements.txt
+WORKDIR /yallib
 
-COPY yallib/yallib/celery
-COPY yallib/yallib/init.d/celery
-
-RUN chmod 640 '/yallib/yallib/celery'
-
-COPY docker-entrypoint.sh /root
-ENTRYPOINT ["/root/docker-entrypoint.sh"]
-
-CMD [ "./manage.py", "runserver", "127.0.0.1:8000" ]
+EXPOSE 80

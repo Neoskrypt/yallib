@@ -22,6 +22,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext_lazy as _
 from django.conf.urls.static import static
 from django.conf import settings
+import os
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,3 +41,7 @@ urlpatterns += i18n_patterns(
     path(_('author/<int:id>/delete/'), class_views.AuthorDelete.as_view()),
     # path('logout/', views.logout),
 )
+
+SERVER_ENVIRONMENT = os.getenv('RUN_ENV', '')
+if SERVER_ENVIRONMENT == 'PROD':
+    urlpatterns += path('', (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}), )

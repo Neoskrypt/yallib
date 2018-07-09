@@ -9,3 +9,7 @@
 .coverage
 .tox
 nosetests.xml
+.idea
+*.ini
+*.log
+.vargrant/

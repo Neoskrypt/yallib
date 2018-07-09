@@ -1,0 +1,32 @@
+django:
+  image: username/image:latest
+  command: python manage.py supervisor
+  environment:
+    RUN_ENV: "$RUN_ENV"
+  ports:
+   - "127.0.0.1:8000"
+  volumes:
+   - .:/project
+  links:
+   - redis
+   - sqlite
+
+celery_worker:
+  image: username/image:latest
+  command: python manage.py celery worker -l info
+  links:
+   - sqlite
+   - redis
+
+sqlite:
+  image: sqlite:3.22.0
+  volumes:
+    - LOCAL_DB_PATH:/var/lib/sqlite3/data
+  ports:
+   - "5432:5432"
+
+
+redis:
+  image: redis:latest
+  command: redis-server --appendonly yes
+  
