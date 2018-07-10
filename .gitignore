@@ -13,3 +13,4 @@ nosetests.xml
 *.ini
 *.log
 .vargrant/
+*.pid

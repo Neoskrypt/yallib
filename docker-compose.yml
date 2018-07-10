@@ -18,15 +18,14 @@ celery_worker:
    - sqlite
    - redis
 
-sqlite:
+db:
   image: sqlite:3.22.0
   volumes:
-    - LOCAL_DB_PATH:/var/lib/sqlite3/data
-  ports:
-   - "5432:5432"
+    - db-data:LOCAL_DB_PATH
+
+
 
 
 redis:
   image: redis:latest
   command: redis-server --appendonly yes
-  
