@@ -6,13 +6,14 @@ from celery.decorators import periodic_task
 from yallib.utils import scrapers
 from celery.utils.log import get_task_logger
 from datetime import datetime
+from celery.task import task
 
 
-@app.task(bind=True)
+@task
 def debug_task(self):
     print('Request: {0!r}'.format(self.request))
 
-
+"""
 @shared_task
 def add(x, y):
     return x + y
@@ -25,7 +26,6 @@ def mul(x, y):
 
 logger = get_task_logger(__name__)
 # A periodic task that will run every minute (the symbol "*" means every)
-app = Celery("yallib")
 
 
 @periodic_task(run_every=crontab(hour=7, minute=38, day_of_week=1))
@@ -34,3 +34,4 @@ def scraper_example():
     now = datetime.now()
     result = scrapers.scraper_example(now.day, now.minute)
     logger.info("Task finished: result = %i" % result)
+    """
