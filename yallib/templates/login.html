@@ -1,46 +1,91 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      {% load i18n %}
+    <title>
+      {% trans  "Admin Area | Account Login" %}
+      {% get_current_language as LANGUAGE_CODE %}
+    </title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type='text/css'/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type='text/css'/>
+    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+  </head>
+
+  <body>
     {% load i18n %}
-  <title>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AdminStrap</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
 
-  {% trans "Login" %}
-    {% get_current_language as LANGUAGE_CODE %}
-  </title>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-  <link rel="stylesheet" href="static/css/style.css">
-  
-  <style>
-  .any{
-    width: 100%;
-    height: 1600px;
-    background: #cdeef5;
-  }
-  </style>
+    <header id="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center">Admin Area <small>Account Login</small></h1>
+          </div>
+        </div>
+      </div>
+    </header>
 
 
-</head>
-<body>
-    {% load i18n %}
-  <div class="any">
+    <section id="main">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <form id="login" action="index.html" class="well">
+                <div class="form-group">
+                  {% load i18n %}
+                  <label>{% trans "Username" %}:</label>
+                  <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <label>{% trans "Password" %}:</label>
+                  <input type="password" class="form-control" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-default btn-block">Login</button>
+                {% if login_error %}
+                <label class="error">{{login_error}}</label>
+                {% endif %}
+              </form>
+              {{ site_name }}
+              {{ site_description }}
+            </div>
+          </div>
+        </div>
 
-  <form action="/login/" method="POST" action="/login/">
-      {% csrf_token %}
-      <table>
-        {% load i18n %}
-        <tr><td><label for "username">{% trans "Username" %}:</label></td><td><input type="text" name="username" id="username"></td></tr>
-          <tr><td><label for "password">{% trans "Password" %}:</label></td><td><input type="password" name="password" id="password"></td></tr>
-        <tr><td></td><td><label for "button"></label><input class="button" type="submit" value="submit"></td></tr>
-        {% if login_error %}
-          <label class="error">{{login_error}}</label>
-        {% endif %}
-      </table>
+    </section>
 
-    </form>
-    {{ site_name }}
+    <footer id="footer">
+      <p>Copyright AdminStrap, &copy; 2018</p>
+    </footer>
 
-    {{ site_description }}
-  </div>
-</body>
+  <script>
+  CKEDITOR.replace("editor1");
+  </script>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
 </html>

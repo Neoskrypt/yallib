@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 from yallib.celery import app
-from celery import shared_task
+from celery import shared_task, Celery
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
 from yallib.utils import scrapers
@@ -25,6 +25,7 @@ def mul(x, y):
 
 logger = get_task_logger(__name__)
 # A periodic task that will run every minute (the symbol "*" means every)
+app = Celery("yallib")
 
 
 @periodic_task(run_every=crontab(hour=7, minute=38, day_of_week=1))
