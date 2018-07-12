@@ -26,8 +26,8 @@ import os
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
-    path('login/authors/', views.get_authors, name='authors'),
-    path('login/author/<int:id>', views.get_author, name="author"),
+    # path('login/authors/', views.get_authors, name='authors'),
+    # path('login/author/<int:id>', views.get_author, name="author"),
     path('login/', views.login, name='login'),
     path('login/authorview/<int:id>', class_views.AuthorView.as_view()),
     path('login/author/list/', class_views.AuthorListView.as_view(), name="authorlist"),

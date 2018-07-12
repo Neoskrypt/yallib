@@ -3,14 +3,14 @@ from django.utils.deprecation import MiddlewareMixin
 
 
 class CheckUser(MiddlewareMixin):
+    def __init__(self, get_response):
+        self.get_response = get_response
+        # One-time configuration and initialization.
     # check user status
-    def pre_request(self, request):
+    def __call__(self, request):
+        # import pdb; pdb.set_trace()
+        if request.user.is_authenticated and request.user.status != "LOCKED" or request.user.is_anonymous:
+            return self.get_response(request)
 
-        if request.user.is_authenticated() and request.user.status != "LOCKED":
-            return None
-
-        elif request.user.is_anonymous():  # anonymous user
-            return True
         else:
             raise HttpResponseForbidden("<h1>403 Forbidden</h1>")
-            return True

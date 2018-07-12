@@ -55,7 +55,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -85,8 +85,8 @@ MIDDLEWARE = [
     # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware',
     # custom middleware
-    'yallib.middleware.check_user.CheckUser',
-    'yallib.request_logging.logger.LoggingMiddleware',
+    # 'yallib.middleware.check_user.CheckUser',
+    #'yallib.request_logging.logger.LoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'yallib.urls'

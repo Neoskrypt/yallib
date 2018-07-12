@@ -56,7 +56,7 @@ class LoggingMiddleware(MiddlewareMixin):
     def process_request(self, request):
         self.start_time = time.time()
 
-    def process_responce(self, request, get_response):
+    def process_response(self, request, get_response):
         try:
             log_dict = create_log_dict(request, get_response)
             request_time = (

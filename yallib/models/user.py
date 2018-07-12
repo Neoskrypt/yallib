@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
     )
-from model_utils import Choices
+# from model_utils import Choices
 
 
 class UserManager(BaseUserManager):
@@ -56,7 +56,7 @@ class User(AbstractBaseUser):  # создаем таблицу пользова�
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)  # admin User
     admin = models.BooleanField(default=False)  # super User
-    ORDER_STATUS = Choices(
+    ORDER_STATUS = (
         ("0", "BLOCKED"),
         ("1", "ACTIVE"),
         ("2", "DELETED"),
