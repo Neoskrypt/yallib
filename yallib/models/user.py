@@ -55,6 +55,7 @@ class User(AbstractBaseUser):  # создаем таблицу пользова�
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)  # admin User
     admin = models.BooleanField(default=False)  # super User
+    
     ORDER_STATUS = (
         ("0", "BLOCKED"),
         ("1", "ACTIVE"),
