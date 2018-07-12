@@ -18,30 +18,24 @@ from django.contrib import admin
 from django.urls import path
 import yallib.views.views as views
 import yallib.views.class_views as class_views
-from django.conf.urls.i18n import i18n_patterns
-from django.utils.translation import gettext_lazy as _
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic.base import TemplateView
 import os
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
-
-# Use static()to add url mapping to serve static files during development(only)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += i18n_patterns(
-    path(_('^$'), views.get_authors),  #
-    path(_('login/authors/'), views.get_authors, name='authors'),
-    path(_('login/author/<int:id>'), views.get_author, name="author"),
-    path(_('login/'), views.login, name='login'),
-    # path(_('login/'), class_views.LoginView.as_view(), name="login_as_class"),
-    path(_('login/authorview/<int:id>'), class_views.AuthorView.as_view()),
-    path(_('login/authorlist/'), class_views.AuthorListView.as_view(), name="authorlist"),
-    path(_('author/<int:id>/update/'), class_views.AuthorUpdate.as_view()),
-    path(_('author/<int:id>/delete/'), class_views.AuthorDelete.as_view()),
+    path('^$', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('login/authors/', views.get_authors, name='authors'),
+    path('login/author/<int:id>', views.get_author, name="author"),
+    path('login/', views.login, name='login'),
+    path('login/authorview/<int:id>', class_views.AuthorView.as_view()),
+    path('login/authorlist/', class_views.AuthorListView.as_view(), name="authorlist"),
+    path('author/<int:id>/update/', class_views.AuthorUpdate.as_view()),
+    path('author/<int:id>/delete/', class_views.AuthorDelete.as_view()),
     # path('logout/', views.logout),
-)
+]
 # for static with help gunicorn
 SERVER_ENVIRONMENT = os.getenv('RUN_ENV', '')
 if SERVER_ENVIRONMENT == 'PROD':

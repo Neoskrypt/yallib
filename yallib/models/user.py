@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
     )
+from model_utils import Choices
 
 
 class UserManager(BaseUserManager):
@@ -55,13 +56,13 @@ class User(AbstractBaseUser):  # создаем таблицу пользова�
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)  # admin User
     admin = models.BooleanField(default=False)  # super User
-    ORDER_STATUS = (
+    ORDER_STATUS = Choices(
         ("0", "BLOCKED"),
         ("1", "ACTIVE"),
         ("2", "DELETED"),
         ("3", "SUSPENDED"),
     )
-    status = models.IntegerField(default=0, choices=ORDER_STATUS)
+    status = models.CharField(max_length=50, default=1, choices=ORDER_STATUS)
 
     objects = UserManager()
     # поле пароль встроено в settings стр 90-102
