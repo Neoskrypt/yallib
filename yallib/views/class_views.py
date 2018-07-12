@@ -32,7 +32,7 @@ class AuthorView(TemplateView):
     template_name = 'authors.html'
     model = Author
 
-    @method_decorator(login_required(login_url='/login/'))
+    @login_required(login_url='/login/')
     def get_context_data(request, *args, **kwargs):
         context = super(AuthorView, request).get_context_data(**kwargs)
         context["Authors"] = Author.objects.filter(pk=request.kwargs.get("id"))
@@ -44,10 +44,10 @@ class AuthorView(TemplateView):
 class AuthorListView(AuthorView):
     paginate_by = 10
 
-    @method_decorator(login_required(login_url='/login/'))
+    @login_required(login_url='/login/')
     def get_context_data(request, *args, **kwargs):
         context = super(AuthorView, request).get_context_data(**kwargs)
-        context["Authors"] = Author.objects.all()
+        context["Authors"] = Author.objects.all(), request.user.email
         return context
 
 

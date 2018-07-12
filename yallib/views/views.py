@@ -32,9 +32,9 @@ def login(request):
     if request.POST:
         username = request.POST.get("username", "")
         password = request.POST.get("password", "")
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(request, username=username, password=password)
         if user is not None and user.is_active:
-            auth.login(request, user)
+            auth_login(request, user)
             return redirect("home")
         else:
             args["login_error"] = "User not found!!!"
@@ -43,7 +43,6 @@ def login(request):
         return render(request, "login.html", args)
 
 
-"""
 class TestView(TemplateView):
     template_name = 'login.html'
     http_method_names = ['post']
@@ -51,7 +50,7 @@ class TestView(TemplateView):
     def post(self, *args, **kwargs):
 
         return render(self.request, self.template_name)
-"""
+
 
 
 

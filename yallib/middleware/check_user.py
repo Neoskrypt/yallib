@@ -8,8 +8,9 @@ class CheckUser(MiddlewareMixin):
 
         if request.user.is_authenticated() and request.user.status != "LOCKED":
             return None
+
         elif request.user.is_anonymous():  # anonymous user
-            return None
+            return True
         else:
             raise HttpResponseForbidden("<h1>403 Forbidden</h1>")
             return True
