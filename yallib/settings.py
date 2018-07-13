@@ -84,7 +84,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     # custom middleware
     'yallib.middleware.check_user.CheckUser',
-    'yallib.logger.LoggingMiddleware',
+    # 'yallib.request_logging.logger.LoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'yallib.urls'
@@ -153,7 +153,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'yallib.User'
-LOGIN_URL = 'login'
+LOGIN_URL = '/login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
